@@ -24,3 +24,11 @@ def contact(update, context):
 
 updater = telegram.ext.Updater(TELEGRAM_TOKEN, use_context=True)
 disp = updater.dispatcher
+
+disp.add_handler(telegram.ext.CommandHandler("start", start))
+disp.add_handler(telegram.ext.CommandHandler("contact", contact))
+disp.add_handler(telegram.ext.CommandHandler("content", content))
+disp.add_handler(telegram.ext.CommandHandler("help", help))
+
+updater.start_polling()
+updater.idle()
